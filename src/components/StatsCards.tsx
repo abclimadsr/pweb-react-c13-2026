@@ -1,12 +1,14 @@
 import type { Application } from "../types";
 import { calcStats } from "../utils/stats";
+import { useNow } from "../hooks/useNow";
 
 interface Props {
   applications: Application[];
 }
 
 export default function StatsCards({ applications }: Props) {
-  const s = calcStats(applications, Date.now());
+  const now = useNow();
+  const s = calcStats(applications, now);
 
   const cards = [
     { label: "Total Lamaran", value: String(s.total), hint: `${s.sent} sudah dikirim` },

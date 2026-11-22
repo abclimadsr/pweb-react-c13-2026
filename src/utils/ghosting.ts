@@ -1,4 +1,3 @@
-// utils/ghosting.ts (milik Anggota 2, versi sementara)
 import type { Application } from "../types";
 
 const DAY_MS = 24 * 60 * 60 * 1000;

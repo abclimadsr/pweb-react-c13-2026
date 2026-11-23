@@ -26,3 +26,20 @@ input, select, button { padding: 8px; border-radius: 6px; border: 1px solid #d1d
 button { cursor: pointer; background: #1e3a8a; color: #fff; border: 0; }
 button:disabled { background: #e5e7eb; color: #6b7280; cursor: not-allowed; }
 @media (max-width: 768px) { .layout { grid-template-columns: 1fr; } }
+.pipeline { padding: 16px; }
+.pipeline h2 { margin: 0 0 12px; }
+.clickable { cursor: pointer; }
+.clickable.selected { border-color: #1e3a8a; box-shadow: 0 0 0 2px #bfdbfe; }
+.status { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; background: #e5e7eb; }
+.status-applied { background: #dbeafe; } .status-screening { background: #e0e7ff; }
+.status-interview { background: #fef9c3; } .status-offer { background: #dcfce7; }
+.status-rejected { background: #fee2e2; } .status-ghosted { background: #f3e8ff; }
+.banner-conflict { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; }
+.banner-conflict ul { margin: 6px 0 0; padding-left: 18px; }
+.plain { list-style: none; padding: 0; margin: 8px 0; }
+.plain li { margin-bottom: 8px; font-size: 14px; }
+.done { text-decoration: line-through; color: #6b7280; }
+.progress { height: 8px; background: #e5e7eb; border-radius: 999px; overflow: hidden; }
+.progress-bar { height: 100%; background: #16a34a; transition: width .2s; }
+.form-inline { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.card h4 { margin: 12px 0 6px; }

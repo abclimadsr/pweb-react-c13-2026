@@ -11,19 +11,30 @@ interface Props {
   applications: Application[];
   kaptenSkills: string[];
   updateApplication: UpdateApplication;
+  deleteApplication: (id: string) => void;
 }
 
 const STATUSES: ApplicationStatus[] = [
   "WISHLIST", "APPLIED", "SCREENING", "INTERVIEW", "OFFER", "REJECTED", "GHOSTED",
 ];
 
-export default function Pipeline({ applications, kaptenSkills, updateApplication }: Props) {
+export default function Pipeline({
+  applications,
+  kaptenSkills,
+  updateApplication,
+  deleteApplication,
+}: Props) {
   const now = useNow();
   const { filtered, filters, setFilters } = usePipelineFilter(applications, now);
   const actions = useApplicationActions(updateApplication);
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const selected = applications.find((a) => a.id === selectedId);
+
+  const handleDelete = (id: string) => {
+    deleteApplication(id);
+    if (selectedId === id) setSelectedId(null);
+  };
 
   return (
     <section className="pipeline">
@@ -85,7 +96,14 @@ export default function Pipeline({ applications, kaptenSkills, updateApplication
         </div>
       )}
 
-      {selected && <ApplicationDetail app={selected} actions={actions} />}
+      {selected && (
+        <ApplicationDetail
+          key={selected.id}
+          app={selected}
+          actions={actions}
+          onDelete={handleDelete}
+        />
+      )}
     </section>
   );
 }
